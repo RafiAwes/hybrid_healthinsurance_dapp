@@ -1,5 +1,5 @@
 {
-  "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
   "abi": [
     {
       "inputs": [],
@@ -10,22 +10,12 @@
       "inputs": [
         {
           "internalType": "address",
-          "name": "_buyer",
+          "name": "buyerAddress",
           "type": "address"
         },
         {
           "internalType": "string",
-          "name": "_name",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "_nid",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "_cid",
+          "name": "cid",
           "type": "string"
         }
       ],
@@ -50,6 +40,25 @@
     {
       "inputs": [
         {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "buyerAddresses",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
           "internalType": "address",
           "name": "",
           "type": "address"
@@ -59,22 +68,31 @@
       "outputs": [
         {
           "internalType": "string",
-          "name": "name",
+          "name": "cid",
           "type": "string"
-        },
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
         {
-          "internalType": "string",
-          "name": "nid",
-          "type": "string"
+          "internalType": "address",
+          "name": "",
+          "type": "address"
         },
         {
           "internalType": "uint256",
-          "name": "premiumPaidTill",
+          "name": "",
           "type": "uint256"
-        },
+        }
+      ],
+      "name": "claimsByBuyer",
+      "outputs": [
         {
           "internalType": "string",
-          "name": "ipfsCid",
+          "name": "",
           "type": "string"
         }
       ],
@@ -83,25 +101,161 @@
     },
     {
       "inputs": [],
-      "name": "payPremium",
-      "outputs": [],
-      "stateMutability": "payable",
+      "name": "getAllBuyers",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [
         {
           "internalType": "address",
-          "name": "_buyer",
+          "name": "buyerAddress",
+          "type": "address"
+        }
+      ],
+      "name": "getBuyerCID",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "buyerAddress",
+          "type": "address"
+        }
+      ],
+      "name": "getClaimsByBuyer",
+      "outputs": [
+        {
+          "internalType": "string[]",
+          "name": "",
+          "type": "string[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "buyerAddress",
+          "type": "address"
+        }
+      ],
+      "name": "getPremiumsByBuyer",
+      "outputs": [
+        {
+          "internalType": "string[]",
+          "name": "",
+          "type": "string[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "buyerAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "payPremium",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "premiumsByBuyer",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "buyerAddress",
           "type": "address"
         },
         {
           "internalType": "string",
-          "name": "_cid",
+          "name": "cid",
           "type": "string"
         }
       ],
-      "name": "updateBuyerCid",
+      "name": "recordClaim",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "buyerAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "cid",
+          "type": "string"
+        }
+      ],
+      "name": "recordPremiumPayment",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newAdmin",
+          "type": "address"
+        }
+      ],
+      "name": "transferAdmin",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"

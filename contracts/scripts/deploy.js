@@ -9,6 +9,13 @@ async function main() {
     await contract.waitForDeployment();
     console.log("Deployed to:", contract.target);
 
+    // Transfer admin to the user's wallet address
+    const newAdmin = "0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199";
+    console.log("Transferring admin to:", newAdmin);
+    const tx = await contract.transferAdmin(newAdmin);
+    await tx.wait();
+    console.log("✅ Admin transferred successfully");
+
     const artifact = await artifacts.readArtifact("HealthInsurance");
     const data = { address: contract.target, abi: artifact.abi };
     fs.writeFileSync(
